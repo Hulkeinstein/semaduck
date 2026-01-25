@@ -1,76 +1,117 @@
-import React from 'react';
+'use client';
+
+import { motion } from 'framer-motion';
+import styles from './MenuSection.module.css';
 
 const menuItems = [
     {
-        course: "First Course",
-        name: "Fresh Duck Roast",
-        tags: "생오리 숯불구이",
-        price: "Thinking...", // Price strategy to be defined later
-        desc: "참숯 향이 배어든 담백하고 쫄깃한 육질"
-    },
-    {
-        course: "Second Course",
-        name: "Spicy Duck Stew",
-        tags: "오리탕",
-        price: "",
-        desc: "오리뼈를 진하게 우려낸 깊고 얼큰한 국물"
-    },
-    {
-        course: "Third Course",
-        name: "Nutritious Porridge",
-        tags: "녹두죽",
-        price: "",
-        desc: "녹두와 찹쌀로 쑤어낸 부드러운 마무리"
+        step: "Main Menu",
+        name: "오리 숯불구이",
+        price: "한마리 89,000 / 반마리 54,000",
+        description: "", // Description moved to details/emphasis
+        details: [
+            { label: "추가 메뉴", text: "1인분 추가 27,000" },
+            { label: "코스 포함", text: "오리 숯불구이, 도토리묵, 계절 식사(깨죽, 냉면 또는 밥, 오리탕)", highlight: true },
+            { label: "원산지", text: "오리고기, 쌀, 김치(배추, 고추가루) 국내산", isOrigin: true }
+        ]
     }
 ];
 
-const MenuSection = () => {
+export default function MenuSection() {
     return (
-        <section className="w-full py-24 px-4 bg-[#f7f5f1]">
-            <div className="max-w-4xl mx-auto text-center">
-
+        <section className={styles.section}>
+            <div className={styles.container}>
                 {/* Header */}
-                <div className="mb-20">
-                    <span className="font-dancing text-3xl md:text-4xl -rotate-3 text-[#00382c] inline-block mb-4">
+                <div className={styles.header}>
+                    <motion.span
+                        className={styles.label}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
                         Signature Course
-                    </span>
-                    <h2 className="font-playfair text-4xl md:text-5xl text-[#00382c]">
-                        하나의 코스, 세 번의 감동
-                    </h2>
+                    </motion.span>
+                    <motion.h2
+                        className={styles.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                    >
+                        Taste of Nature
+                    </motion.h2>
                 </div>
 
-                {/* Menu List */}
-                <div className="space-y-12">
-                    {menuItems.map((item, index) => (
-                        <div key={index} className="group flex flex-col items-center space-y-3">
-                            <span className="font-manrope text-sm tracking-widest text-[#C5A039] uppercase">
-                                {item.course}
-                            </span>
-                            <h3 className="font-playfair text-3xl md:text-4xl text-[#00382c] relative inline-block">
-                                {item.name}
-                                {/* Underline effect on hover */}
-                                <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-[#00382c] transition-all duration-500 group-hover:w-full"></span>
-                            </h3>
-                            <p className="font-manrope text-lg text-[#00382c]/80">
-                                {item.tags}
-                            </p>
-                            <p className="font-manrope text-sm text-[#00382c]/60 max-w-md">
-                                {item.desc}
-                            </p>
+                {/* Content Row: Menu List + Image */}
+                <div className={styles.contentRow}>
+
+                    {/* Menu List */}
+                    <div className={styles.menuList}>
+                        {menuItems.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                className={styles.category}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + (index * 0.1) }}
+                            >
+                                <span className={styles.courseStep}>{item.step}</span>
+                                <div className={styles.menuItem}>
+                                    <div className={styles.itemHeader} style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
+                                        <h3 className={styles.itemName} style={{ fontSize: '3.2rem', lineHeight: 1.2 }}>{item.name}</h3>
+                                        <span className={styles.itemPrice} style={{ fontSize: '1.8rem', color: '#C5A039', fontWeight: 700 }}>
+                                            {item.price}
+                                        </span>
+                                    </div>
+
+                                    {/* Description/Details List */}
+                                    <div style={{ marginTop: '2rem' }}>
+                                        {item.details && item.details.map((detail, idx) => (
+                                            <div key={idx} style={{
+                                                marginBottom: '1rem',
+                                                fontSize: detail.isOrigin ? '1.2rem' : '1.35rem',
+                                                color: detail.isOrigin ? '#666' : '#00382C',
+                                                fontWeight: detail.highlight ? 700 : 500,
+                                                lineHeight: 1.6
+                                            }}>
+                                                {detail.label && <span style={{ marginRight: '0.5rem', fontWeight: 700 }}>{detail.label}:</span>}
+                                                {detail.text}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                {index < menuItems.length - 1 && (
+                                    <div style={{ marginTop: "2rem", width: "100%" }}>
+                                        {/* Hide divider in new left-align layout or align it left? Let's just create spacing without visible line or align line. */}
+                                        {/* <div className={styles.divider} /> */}
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Image Column */}
+                    <motion.div
+                        className={styles.imageColumn}
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <div className={styles.menuImageWrapper}>
+                            {/* Make sure Image is imported */}
+                            <img
+                                src="/images/menu/menu-main.png"
+                                alt="Sema Duck Farm Signature Menu"
+                                className={styles.menuImage}
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            />
                         </div>
-                    ))}
-                </div>
+                    </motion.div>
 
-                {/* Download / Full Menu Button */}
-                <div className="mt-20">
-                    <button className="border border-[#00382c] px-8 py-3 rounded-full text-[#00382c] hover:bg-[#00382c] hover:text-[#f7f5f1] transition-colors duration-300 font-manrope uppercase text-sm tracking-widest">
-                        View Full Menu
-                    </button>
                 </div>
-
             </div>
         </section>
     );
-};
-
-export default MenuSection;
+}

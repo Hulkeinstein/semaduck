@@ -33,7 +33,8 @@
 
 .label {
     font-family: var(--font-dancing), cursive;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    /* Standardized Size */
     color: #C5A039;
     /* Gold Accent */
     margin-bottom: 1rem;

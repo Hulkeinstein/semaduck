@@ -55,9 +55,10 @@
 
 /* Typography & Elements */
 .label {
-    font-family: var(--font-dancing), cursive;
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    /* Reduced Size (Small/Elegant) */
+    font-family: var(--font-dancing),
+        cursive;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    /* Standardized Size */
     line-height: 1.1;
     transform: rotate(-3deg);
     margin-bottom: 0.5rem;
