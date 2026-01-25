@@ -1,0 +1,160 @@
+/* Hero.module.css - Korean Heritage Style */
+
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+/* Background Image Container */
+.backgroundLayer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.backgroundImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    animation: slowZoom 30s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Overlay for Readability */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+    z-index: 1;
+}
+
+/* Content Container */
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-left: 10vw;
+    /* Response padding */
+    padding-right: 5vw;
+}
+
+/* Typography */
+.scriptLabel {
+    font-family: var(--font-noto-serif);
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 300;
+    color: #F7F5F1;
+    transform: rotate(-2deg);
+    /* Slightly less rotation for Korean */
+    margin-bottom: 1.5rem;
+    /* Balanced spacing */
+    display: inline-block;
+    letter-spacing: 0.15em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.mainTitle {
+    font-family: var(--font-noto-serif);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 600;
+    /* Reduced from 900 for elegance */
+    line-height: 1.0;
+    /* Tighter line height */
+    letter-spacing: -0.03em;
+    /* Slightly tighter for Serif */
+    margin-bottom: 1.5rem;
+    /* Reduced from 3rem */
+    margin-top: 0;
+    /* Remove default browser margin */
+    color: #FFFFFF;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    word-break: keep-all;
+}
+
+/* Ghost Button */
+.ghostButton {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-family: var(--font-noto-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    /* Glassmorphism touch */
+}
+
+.ghostButton:hover {
+    background: white;
+    color: #000;
+    border-color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.scrollTrack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.scrollText {
+    font-family: var(--font-noto-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+.scrollDuckImage {
+    object-fit: contain;
+    /* Increase visibility against dark background if needed */
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+}

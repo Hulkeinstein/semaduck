@@ -1,0 +1,150 @@
+/* MainIntro.module.css */
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    /* Increased height for parallax */
+    background-color: #f7f5f1;
+    color: #00382c;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    /* Wide container */
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* Center Content (Always visible) */
+.centerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    padding: 2rem 0;
+}
+
+/* Side Images (Hidden on Mobile by default, or stacked) */
+.sideImageWrapper {
+    display: none;
+    /* Hidden on mobile */
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 9999px;
+    /* Pill shape or Circle */
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.sideImage {
+    object-fit: cover;
+    filter: sepia(20%);
+    /* Slight vintage tone */
+}
+
+/* Typography & Elements */
+.label {
+    font-family: var(--font-dancing), cursive;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    /* Reduced Size (Small/Elegant) */
+    line-height: 1.1;
+    transform: rotate(-3deg);
+    margin-bottom: 0.5rem;
+    color: #00382c;
+    transition: transform 0.5s ease;
+}
+
+.centerContent:hover .label {
+    transform: rotate(0deg);
+}
+
+.title {
+    font-family: var(--font-playfair), serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    margin-bottom: 3rem;
+    letter-spacing: -0.01em;
+    text-align: center;
+    font-weight: 700;
+    color: #00382c;
+    line-height: 1.2;
+}
+
+.divider {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.duckImageWrapper {
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.duckImageWrapper:hover {
+    transform: scale(1.05);
+}
+
+.duckImage {
+    object-fit: contain;
+    border-radius: 50%;
+    /* Optional circle if it's a photo */
+    /* filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1)); */
+}
+
+.body {
+    font-family: var(--font-manrope), sans-serif;
+    font-size: 1.125rem;
+    text-align: center;
+    line-height: 1.7;
+    max-width: 32rem;
+    /* Keep text narrow for readability */
+}
+
+.paragraph {
+    margin-bottom: 1.5rem;
+}
+
+.subParagraph {
+    display: block;
+    color: rgba(0, 56, 44, 0.8);
+}
+
+/* Desktop: 3-Column Layout */
+@media (min-width: 1024px) {
+    .gridContainer {
+        grid-template-columns: 1fr 1.5fr 1fr;
+        /* Side - Center - Side */
+        gap: 4rem;
+    }
+
+    .sideImageWrapper {
+        display: block;
+        height: 600px;
+        /* Tall vertical images */
+        width: 100%;
+        max-width: 300px;
+        /* Limit width */
+        margin: 0 auto;
+        border-radius: 200px;
+        /* Arch or Pill shape */
+    }
+
+    /* Shift Right Image slightly down for asymmetry if desired? handled by parallax Y */
+    .rightImageInner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+}

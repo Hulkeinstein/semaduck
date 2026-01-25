@@ -1,0 +1,121 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import styles from './Hero.module.css';
+
+// Animation Variants for Staggered Blur-In
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.3,
+            delayChildren: 0.5,
+        }
+    }
+};
+
+const blurIn = {
+    hidden: {
+        filter: "blur(20px)",
+        opacity: 0,
+        y: 20
+    },
+    show: {
+        filter: "blur(0px)",
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 1.2,
+            ease: "easeInOut" as const,
+        }
+    }
+};
+
+export default function Hero() {
+    const { scrollY } = useScroll();
+    const y = useTransform(scrollY, [0, 1000], [0, 400]);
+
+    return (
+        <section className={styles.heroSection}>
+            {/* Background Layer (Parallax) */}
+            <motion.div
+                className={styles.backgroundLayer}
+                style={{ y }}
+            >
+                <Image
+                    src="/images/hero/main-hero-2.webp"
+                    alt="세마오리농원 시그니처"
+                    fill
+                    priority
+                    className={styles.backgroundImage}
+                />
+            </motion.div>
+
+            {/* Overlay */}
+            <div className={styles.overlay} />
+
+            {/* Main Content */}
+            <motion.div
+                className={styles.content}
+                variants={container}
+                initial="hidden"
+                animate="show"
+            >
+                {/* Subtitle: 26년의 고집, 변치 않는 맛 */}
+                <motion.span
+                    className={styles.scriptLabel}
+                    variants={blurIn}
+                >
+                    26년의 고집, 변치 않는 맛
+                </motion.span>
+
+                {/* Main Title: 세마오리농원 */}
+                <motion.h1
+                    className={styles.mainTitle}
+                    variants={blurIn}
+                >
+                    세마오리농원
+                </motion.h1>
+
+                {/* Button: 예약하기 */}
+                <motion.a
+                    href="#reservation"
+                    className={styles.ghostButton}
+                    variants={blurIn}
+                >
+                    예약하기
+                </motion.a>
+            </motion.div>
+
+            {/* Scroll Indicator (Duck) */}
+            <motion.div
+                className={styles.scrollIndicator}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 1 }}
+            >
+                <div className={styles.scrollTrack}>
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    >
+                        <Image
+                            src="/assets/icons/duck.png"
+                            alt="Scroll Down"
+                            width={32}
+                            height={32}
+                            className={styles.scrollDuckImage}
+                        />
+                    </motion.div>
+                    <span className={styles.scrollText}>Scroll</span>
+                </div>
+            </motion.div>
+        </section>
+    );
+}
