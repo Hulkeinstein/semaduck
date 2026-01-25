@@ -1,0 +1,112 @@
+/* MainChef.module.css */
+
+.section {
+    position: relative;
+    width: 100%;
+    background-color: #1A1A1A;
+    /* Charcoal Dark */
+    color: #f7f5f1;
+    /* Light Cream Text */
+    padding: 8rem 1rem;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+    /* Mobile: Text below image */
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Text Side */
+.textColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    text-align: left;
+}
+
+.label {
+    font-family: var(--font-dancing), cursive;
+    font-size: 2rem;
+    color: #C5A039;
+    /* Gold Accent */
+    margin-bottom: 1rem;
+    transform: rotate(-3deg);
+    display: inline-block;
+}
+
+.title {
+    font-family: var(--font-playfair), serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.description {
+    font-family: var(--font-manrope), sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(247, 245, 241, 0.8);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.signature {
+    margin-top: 2rem;
+    opacity: 0.8;
+}
+
+/* Image Side */
+.imageColumn {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    /* Portrait Ratio */
+    height: 600px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.chefImage {
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.imageWrapper:hover .chefImage {
+    transform: scale(1.05);
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+        /* Tablet/Desktop: Side by Side */
+        gap: 6rem;
+    }
+
+    .textColumn {
+        align-items: flex-start;
+        padding-left: 4rem;
+    }
+
+    /* Asymmetric spacing */
+    .imageColumn {
+        justify-content: flex-end;
+    }
+}

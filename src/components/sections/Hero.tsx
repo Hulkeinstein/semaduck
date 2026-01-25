@@ -10,8 +10,8 @@ const container = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.3,
-            delayChildren: 0.5,
+            staggerChildren: 0.15,
+            delayChildren: 0.1,
         }
     }
 };
@@ -27,8 +27,8 @@ const blurIn = {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 1.2,
-            ease: "easeInOut" as const,
+            duration: 0.8,
+            ease: "easeOut" as const,
         }
     }
 };
@@ -61,7 +61,8 @@ export default function Hero() {
                 className={styles.content}
                 variants={container}
                 initial="hidden"
-                animate="show"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.3 }}
             >
                 {/* Subtitle: 26년의 고집, 변치 않는 맛 */}
                 <motion.span

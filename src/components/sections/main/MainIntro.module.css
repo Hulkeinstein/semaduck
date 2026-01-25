@@ -41,8 +41,8 @@
     position: relative;
     width: 100%;
     height: 600px;
-    border-radius: 9999px;
-    /* Pill shape or Circle */
+    border-radius: 1rem;
+    /* Rounded Rectangle (User Request) */
     overflow: hidden;
     opacity: 0.8;
 }
@@ -61,7 +61,8 @@
     line-height: 1.1;
     transform: rotate(-3deg);
     margin-bottom: 0.5rem;
-    color: #00382c;
+    color: #C5A039;
+    /* Gold Accent matching Main Chef */
     transition: transform 0.5s ease;
 }
 
@@ -124,24 +125,35 @@
 /* Desktop: 3-Column Layout */
 @media (min-width: 1024px) {
     .gridContainer {
-        grid-template-columns: 1fr 1.5fr 1fr;
-        /* Side - Center - Side */
-        gap: 4rem;
+        grid-template-columns: 1.2fr 1.5fr 0.9fr;
+        /* Left(Large) - Center - Right(Small) */
+        gap: 3rem;
+        /* Adjusted gap to fit */
     }
 
     .sideImageWrapper {
         display: block;
-        height: 600px;
-        /* Tall vertical images */
+        height: 650px;
+        /* Default Height */
         width: 100%;
-        max-width: 300px;
-        /* Limit width */
-        margin: 0 auto;
-        border-radius: 200px;
-        /* Arch or Pill shape */
+        /* Fills the asymmetric column */
+        max-width: none;
+        /* Let grid control width */
+        border-radius: 12px;
     }
 
-    /* Shift Right Image slightly down for asymmetry if desired? handled by parallax Y */
+    .leftWrapper {
+        height: 680px;
+        /* Taller Left */
+    }
+
+    .rightWrapper {
+        height: 580px;
+        /* Shorter Right */
+        margin-top: 4rem;
+        /* Push down slightly for visual asymmetry */
+    }
+
     .rightImageInner {
         width: 100%;
         height: 100%;
