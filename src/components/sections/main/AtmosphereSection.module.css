@@ -1,0 +1,164 @@
+/* AtmosphereSection.module.css */
+
+.section {
+  position: relative;
+  width: 100%;
+  /* Dark Theme for contrast with Menu Section (White) */
+  background-color: #f7f5f1;
+  color: #00382c;
+  padding: 8rem 0;
+  /* Full width scroll needs 0 horizontal padding on container sometimes, but we use inner container */
+  overflow: hidden;
+}
+
+.headerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.label {
+  font-family: var(--font-dancing), cursive;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: #c5a039;
+  /* Gold Accent */
+  margin-bottom: 0.5rem;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+
+.title {
+  font-family: var(--font-playfair), serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: rgba(0, 56, 44, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Slider Container */
+.sliderContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1rem 4rem 1rem;
+  /* Bottom padding for scrollbar or shadow space */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* Center items if they don't overflow */
+  justify-content: flex-start;
+  /* Default for mobile scroll */
+
+  /* Hide Scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sliderContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/* Slider Item */
+.slideItem {
+  flex: 0 0 auto;
+  width: 80vw;
+  /* Mobile: Show most of one slide */
+  max-width: 400px;
+  /* Desktop: Limit width */
+  scroll-snap-align: center;
+  position: relative;
+  /* Context for overlay if needed, but wrapper handles it */
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; Removed gap as caption moves inside */
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  /* Classic Photo Ratio */
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #ddd;
+  /* Placeholder background */
+  cursor: pointer;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.slideItem:hover .image {
+  transform: scale(1.1);
+}
+
+/* Overlay & Caption (Hover Reveal) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 56, 44, 0.8) 0%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.slideItem:hover .overlay {
+  opacity: 1;
+}
+
+.caption {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #f7f5f1;
+  /* Light text on dark overlay */
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.slideItem:hover .caption {
+  transform: translateY(0);
+}
+
+/* Desktop Adjustment */
+@media (min-width: 1024px) {
+  .section {
+    padding: 10rem 0;
+  }
+
+  .sliderContainer {
+    gap: 2.5rem;
+    /* Center content on Desktop */
+    justify-content: center;
+    padding-bottom: 0;
+    /* Remove extra padding if not scrolling */
+  }
+
+  .slideItem {
+    width: 400px;
+  }
+}
