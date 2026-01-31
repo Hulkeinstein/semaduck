@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './AtmosphereSection.module.css';
 
@@ -85,11 +86,12 @@ export default function AtmosphereSection() {
               style={{ backgroundColor: item.placeholderColor }}
             >
               {item.image ? (
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
+                  fill
                   className={styles.image}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ objectFit: 'cover' }}
                 />
               ) : (
                 /* Placeholder for now - User will provide images later */

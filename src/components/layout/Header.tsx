@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   motion,
   AnimatePresence,
@@ -125,9 +126,11 @@ export default function Header() {
         {/* Logo */}
         <div className={styles.logo}>
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-            <img
+            <Image
               src={getLogoSrc()}
               alt="Sema Duck Logo"
+              width={120}
+              height={40}
               className={styles.logoImage}
             />
           </Link>

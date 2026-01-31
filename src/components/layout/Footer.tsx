@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Instagram, MapPin, Phone, Clock } from 'lucide-react';
 import styles from './Footer.module.css';
@@ -65,10 +66,13 @@ export default function Footer() {
           {/* Brand & Info */}
           <motion.div className={styles.brandSection} variants={itemVariants}>
             <Link href="/" className={styles.logo}>
-              <div className={styles.logoCircle}>
-                <span>S</span>
-              </div>
-              <span className={styles.brandName}>SEMA</span>
+              <Image
+                src="/logo-gold.png"
+                alt="Sema Duck Logo"
+                width={120}
+                height={40}
+                className={styles.logoImage}
+              />
             </Link>
             <p className={styles.tagline}>전통과 정성이 담긴 오리고기 전문점</p>
           </motion.div>

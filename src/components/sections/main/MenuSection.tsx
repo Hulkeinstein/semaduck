@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './MenuSection.module.css';
 import type { MenuItem } from '@/types';
@@ -102,10 +103,10 @@ export default function MenuSection() {
             transition={{ delay: 0.4 }}
           >
             <div className={styles.menuImageWrapper}>
-              {/* Make sure Image is imported */}
-              <img
+              <Image
                 src="/images/menu/menu-poster.png"
                 alt="Sema Duck Farm Signature Menu"
+                fill
                 className={`${styles.menuImage} ${styles.menuImageContain}`}
               />
             </div>
