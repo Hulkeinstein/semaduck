@@ -48,8 +48,75 @@ const notoSerifKr = Noto_Serif_KR({
 });
 
 export const metadata: Metadata = {
-  title: '세마오리농원 | Sema Duck Farm',
-  description: '전통과 정성이 담긴 오리고기 전문점, 세마오리농원입니다.',
+  // 기본 정보
+  title: {
+    default: '세마오리농원 | 26년 전통 참숯불 오리구이',
+    template: '%s | 세마오리농원',
+  },
+  description:
+    '26년의 고집, 변치 않는 맛. 경기도 화성에서 최고급 참숯불 오리구이를 경험하세요. 신선한 국내산 오리고기와 전통 조리법으로 정성을 담았습니다.',
+  keywords: [
+    '세마오리농원',
+    '오리고기',
+    '오리구이',
+    '참숯불구이',
+    '화성맛집',
+    '경기도맛집',
+    '오리전문점',
+    '숯불오리',
+    '오리백숙',
+  ],
+
+  // 검색엔진 설정
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  // Open Graph (카카오톡, 페이스북 공유 시)
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: 'https://semaduck.com',
+    siteName: '세마오리농원',
+    title: '세마오리농원 | 26년 전통 참숯불 오리구이',
+    description:
+      '26년의 고집, 변치 않는 맛. 경기도 화성에서 최고급 참숯불 오리구이를 경험하세요.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: '세마오리농원 참숯불 오리구이',
+      },
+    ],
+  },
+
+  // Twitter 카드
+  twitter: {
+    card: 'summary_large_image',
+    title: '세마오리농원 | 26년 전통 참숯불 오리구이',
+    description:
+      '26년의 고집, 변치 않는 맛. 경기도 화성에서 최고급 참숯불 오리구이를 경험하세요.',
+    images: ['/og-image.jpg'],
+  },
+
+  // 기타
+  alternates: {
+    canonical: 'https://semaduck.com',
+  },
+  verification: {
+    // 추후 등록 시 추가
+    // google: 'google-site-verification-code',
+    // naver: 'naver-site-verification-code',
+  },
 };
 
 export default function RootLayout({

@@ -1,9 +1,48 @@
 :root {
-  --background: #f7f5f1;
-  --foreground: #00382c;
+  /* ===== Color System ===== */
+  /* Primary Colors */
+  --sema-forest-green: #00382c;
+  --sema-gold: #c5a039;
+  --sema-paper-white: #f7f5f1;
+
+  /* Neutral Colors */
+  --sema-dark-charcoal: #1a1a1a;
+  --sema-white: #ffffff;
+  --sema-black: #000000;
+
+  /* Semantic Aliases */
+  --background: var(--sema-paper-white);
+  --foreground: var(--sema-forest-green);
+  --accent: var(--sema-gold);
+
+  /* ===== Typography ===== */
   --font-playfair: 'Playfair Display', serif;
   --font-manrope: 'Manrope', sans-serif;
   --font-dancing: 'Dancing Script', cursive;
+  --font-noto-sans: 'Noto Sans KR', sans-serif;
+  --font-noto-serif: 'Noto Serif KR', serif;
+
+  /* ===== Spacing System ===== */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+
+  /* ===== Layout ===== */
+  --max-width: 1440px;
+  --header-height: 80px;
+  --header-height-mobile: 60px;
+
+  /* ===== Transitions ===== */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

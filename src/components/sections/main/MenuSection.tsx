@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 import styles from './MenuSection.module.css';
+import type { MenuItem } from '@/types';
 
-const menuItems = [
+const menuItems: MenuItem[] = [
   {
     step: 'Main Menu',
     name: '오리 숯불구이',
@@ -27,7 +28,7 @@ const menuItems = [
 
 export default function MenuSection() {
   return (
-    <section className={styles.section}>
+    <section id="section-taste-of-nature" className={styles.section}>
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
@@ -65,50 +66,21 @@ export default function MenuSection() {
               >
                 <span className={styles.courseStep}>{item.step}</span>
                 <div className={styles.menuItem}>
-                  <div
-                    className={styles.itemHeader}
-                    style={{
-                      flexDirection: 'column',
-                      alignItems: 'flex-start',
-                      gap: '1rem',
-                    }}
-                  >
-                    <h3
-                      className={styles.itemName}
-                      style={{ fontSize: '3.2rem', lineHeight: 1.2 }}
-                    >
-                      {item.name}
-                    </h3>
-                    <span
-                      className={styles.itemPrice}
-                      style={{
-                        fontSize: '1.8rem',
-                        color: '#C5A039',
-                        fontWeight: 700,
-                      }}
-                    >
-                      {item.price}
-                    </span>
+                  <div className={styles.itemHeader}>
+                    <h3 className={styles.itemName}>{item.name}</h3>
+                    <span className={styles.itemPrice}>{item.price}</span>
                   </div>
 
                   {/* Description/Details List */}
-                  <div style={{ marginTop: '2rem' }}>
+                  <div className={styles.detailsContainer}>
                     {item.details &&
                       item.details.map((detail, idx) => (
                         <div
                           key={idx}
-                          style={{
-                            marginBottom: '1rem',
-                            fontSize: detail.isOrigin ? '1.2rem' : '1.35rem',
-                            color: detail.isOrigin ? '#666' : '#00382C',
-                            fontWeight: detail.highlight ? 700 : 500,
-                            lineHeight: 1.6,
-                          }}
+                          className={`${styles.detailItem} ${detail.isOrigin ? styles.origin : ''} ${detail.highlight ? styles.highlight : ''}`}
                         >
                           {detail.label && (
-                            <span
-                              style={{ marginRight: '0.5rem', fontWeight: 700 }}
-                            >
+                            <span className={styles.detailLabel}>
                               {detail.label}:
                             </span>
                           )}
@@ -117,12 +89,6 @@ export default function MenuSection() {
                       ))}
                   </div>
                 </div>
-                {index < menuItems.length - 1 && (
-                  <div style={{ marginTop: '2rem', width: '100%' }}>
-                    {/* Hide divider in new left-align layout or align it left? Let's just create spacing without visible line or align line. */}
-                    {/* <div className={styles.divider} /> */}
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
@@ -140,8 +106,7 @@ export default function MenuSection() {
               <img
                 src="/images/menu/menu-poster.png"
                 alt="Sema Duck Farm Signature Menu"
-                className={styles.menuImage}
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                className={`${styles.menuImage} ${styles.menuImageContain}`}
               />
             </div>
           </motion.div>
