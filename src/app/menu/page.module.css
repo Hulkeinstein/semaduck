@@ -1,0 +1,300 @@
+.container {
+  min-height: 100vh;
+  background-color: #fff;
+  padding-bottom: 80px;
+}
+
+/* Cinematic Hero - Consistent 2025 Style */
+.heroWrapper {
+  position: relative;
+  height: 60vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  margin-bottom: 60px;
+  /* Space before content */
+}
+
+.heroImageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: top;
+  transform: scale(1.05);
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse 100% 70% at 50% 75%,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /* Lowered Spotlight: Center at 75% down */
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  padding: 60px;
+  z-index: 10;
+  padding: 0 20px;
+  max-width: 900px;
+  margin-top: 15vh;
+}
+
+.heroSubtitle {
+  display: block;
+  font-family: var(--font-montserrat);
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  font-weight: 600;
+  color: #c5a039;
+  /* Brand Gold */
+}
+
+.heroTitle {
+  font-family: var(--font-gowun-batang);
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Signature Section */
+.signatureSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 120px;
+  padding: 0 20px;
+  gap: 60px;
+}
+
+@media (min-width: 1024px) {
+  .signatureSection {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.signatureImageWrapper {
+  width: 100%;
+  max-width: 600px;
+  /* Remove fixed aspect-ratio to let image determine height */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.signatureImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.signatureContent {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .signatureContent {
+    text-align: left;
+    padding-left: 40px;
+  }
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--sema-black);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.signatureName {
+  font-family: var(--font-gowun-batang);
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: var(--sema-black);
+}
+
+.signaturePrice {
+  display: block;
+  font-family: var(--font-montserrat);
+  font-size: 1.5rem;
+  color: var(--sema-gold);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.signatureDesc {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.signatureDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #eee;
+  padding-top: 24px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  /* Changed from text-align base */
+  justify-content: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 1024px) {
+  .detailItem {
+    justify-content: flex-start;
+  }
+}
+
+.detailIcon {
+  color: var(--sema-gold);
+}
+
+/* Menu Grid */
+.menuGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+}
+
+@media (min-width: 768px) {
+  .menuGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.categoryTitle {
+  font-family: var(--font-montserrat);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.categorySubtitle {
+  font-family: var(--font-gowun-batang);
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.itemName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.itemDesc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.itemPrice {
+  font-family: var(--font-montserrat);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+}
+
+/* Origin Section */
+.originSection {
+  margin-top: 100px;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+}
+
+.originTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.originText {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive Headers */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .signatureName {
+    font-size: 2rem;
+  }
+}

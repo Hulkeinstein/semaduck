@@ -1,0 +1,243 @@
+.container {
+  padding-top: var(--header-height);
+  padding-bottom: 120px;
+  background-color: var(--sema-paper-white);
+  min-height: 100vh;
+  color: var(--sema-forest-green);
+}
+
+/* --- Header --- */
+.headerWrapper {
+  text-align: center;
+  padding: 100px 20px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subTitle {
+  display: block;
+  font-family: var(--font-dancing);
+  font-size: 2rem;
+  color: var(--sema-gold);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.mainTitle {
+  font-family: var(--font-playfair);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--sema-forest-green);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.description {
+  font-family: var(--font-noto-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+
+/* --- Filter Tabs --- */
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
+
+.filterButton {
+  background: none;
+  border: 1px solid transparent;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-family: var(--font-manrope);
+  font-size: 0.95rem;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.filterButton:hover {
+  color: var(--sema-forest-green);
+  background-color: rgba(0, 56, 44, 0.05);
+}
+
+.activeFilter {
+  color: var(--sema-paper-white);
+  background-color: var(--sema-forest-green);
+  font-weight: 500;
+}
+
+.activeFilter:hover {
+  background-color: var(--sema-forest-green);
+  color: var(--sema-paper-white);
+}
+
+/* --- Masonry Grid --- */
+.galleryGrid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 4vw;
+  column-count: 3;
+  column-gap: 24px;
+}
+
+.galleryItemWrapper {
+  break-inside: avoid;
+  margin-bottom: 24px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.galleryImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.galleryItemWrapper:hover .galleryImage {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galleryItemWrapper:hover .overlay {
+  opacity: 1;
+}
+
+.itemTitle {
+  color: #fff;
+  font-family: var(--font-playfair);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.itemDesc {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-noto-sans);
+  font-size: 0.9rem;
+  transform: translateY(20px);
+  transition: transform 0.4s ease 0.1s;
+}
+
+.galleryItemWrapper:hover .itemTitle,
+.galleryItemWrapper:hover .itemDesc {
+  transform: translateY(0);
+}
+
+/* --- Lightbox --- */
+.lightboxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.lightboxContent {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightboxImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 90vh;
+}
+
+.closeButton {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 1001;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .galleryGrid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .galleryGrid {
+    column-count: 1;
+  }
+
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .filterContainer {
+    gap: 10px;
+  }
+
+  .filterButton {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}

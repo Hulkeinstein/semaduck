@@ -1,0 +1,280 @@
+.container {
+  padding-top: var(--header-height);
+  padding-bottom: 120px;
+  background-color: var(--sema-paper-white);
+  min-height: 100vh;
+  color: var(--sema-forest-green);
+}
+
+/* --- Hero / Header Section --- */
+.headerWrapper {
+  text-align: center;
+  padding: 100px 20px 80px;
+  position: relative;
+}
+
+.subTitle {
+  display: block;
+  font-family: var(--font-dancing);
+  font-size: 2.2rem;
+  color: var(--sema-gold);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.mainTitle {
+  font-family: var(--font-playfair);
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--sema-forest-green);
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.description {
+  margin-top: 32px;
+  font-family: var(--font-noto-serif);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--sema-dark-charcoal);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+}
+
+/* --- Golden Triangle Layout (Signature) --- */
+.signatureSection {
+  max-width: var(--max-width);
+  margin: 0 auto 120px;
+  padding: 0 4vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.signatureImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.signatureImage {
+  object-fit: contain;
+  transition: transform 0.7s ease;
+}
+
+.signatureImageWrapper:hover .signatureImage {
+  transform: scale(1.05);
+}
+
+.signatureContent {
+  padding: 40px;
+  border-top: 1px solid rgba(197, 160, 57, 0.3);
+  border-bottom: 1px solid rgba(197, 160, 57, 0.3);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-manrope);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sema-paper-white);
+  background-color: var(--sema-gold);
+  padding: 6px 12px;
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+
+.signatureName {
+  font-family: var(--font-playfair);
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: var(--sema-forest-green);
+}
+
+.signaturePrice {
+  font-family: var(--font-manrope);
+  font-size: 1.5rem;
+  color: var(--sema-gold);
+  font-weight: 500;
+  margin-bottom: 32px;
+  display: block;
+}
+
+.signatureDesc {
+  font-family: var(--font-noto-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 32px;
+}
+
+.signatureDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 24px;
+}
+
+.detailItem {
+  font-family: var(--font-noto-sans);
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detailIcon {
+  color: var(--sema-gold);
+}
+
+/* --- Menu Categories Grid --- */
+.menuGrid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 4vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px 60px;
+}
+
+.categoryGroup {
+  break-inside: avoid;
+}
+
+.categoryTitle {
+  font-family: var(--font-playfair);
+  font-size: 2rem;
+  color: var(--sema-forest-green);
+  border-bottom: 2px solid var(--sema-gold);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.categorySubtitle {
+  font-family: var(--font-manrope);
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: relative;
+}
+
+.itemText {
+  flex: 1;
+  padding-right: 24px;
+}
+
+.itemName {
+  font-family: var(--font-noto-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--sema-forest-green);
+  margin-bottom: 8px;
+}
+
+.itemDesc {
+  font-family: var(--font-noto-sans);
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.itemPrice {
+  font-family: var(--font-manrope);
+  font-size: 1.15rem;
+  color: var(--sema-forest-green);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* --- Origin Info --- */
+.originSection {
+  max-width: 800px;
+  margin: 120px auto 0;
+  text-align: center;
+  padding: 40px;
+  border: 1px solid rgba(197, 160, 57, 0.2);
+  background-color: #fff;
+}
+
+.originTitle {
+  font-family: var(--font-noto-serif);
+  font-size: 1.2rem;
+  color: var(--sema-forest-green);
+  margin-bottom: 16px;
+}
+
+.originText {
+  font-family: var(--font-noto-sans);
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Key Responsive Design */
+@media (max-width: 1024px) {
+  .signatureSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .signatureImageWrapper {
+    height: 400px;
+  }
+
+  .menuGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 3rem;
+  }
+
+  .signatureContent {
+    padding: 20px 0;
+    border-top: none;
+    border-bottom: none;
+  }
+}

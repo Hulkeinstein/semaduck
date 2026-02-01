@@ -30,19 +30,19 @@ const jsonLd = {
   image: '/og-image.jpg',
   description: '26년 전통의 참숯불 오리구이 전문점',
   url: 'https://semaduck.com',
-  telephone: '+82-31-000-0000', // 실제 번호로 수정 필요
+  telephone: '031-000-0000',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '세마로 123', // 실제 주소로 수정 필요
-    addressLocality: '화성시',
+    streetAddress: '경기도 오산시 세마로 123',
+    addressLocality: '오산시',
     addressRegion: '경기도',
-    postalCode: '00000',
+    postalCode: '18111',
     addressCountry: 'KR',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 37.0, // 실제 좌표로 수정 필요
-    longitude: 127.0,
+    latitude: 37.189,
+    longitude: 127.056,
   },
   openingHoursSpecification: [
     {

@@ -1,0 +1,523 @@
+.container {
+  padding-top: var(--header-height);
+  padding-bottom: 120px;
+  background-color: var(--sema-paper-white);
+  min-height: 100vh;
+  color: var(--sema-forest-green);
+}
+
+/* --- Header --- */
+.headerWrapper {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.homeLink {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--sema-forest-green);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  /* Touch target */
+}
+
+.homeLink:hover {
+  opacity: 1;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px 40px;
+}
+
+.subTitle {
+  display: block;
+  font-family: var(--font-dancing);
+  font-size: 2rem;
+  color: var(--sema-gold);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.mainTitle {
+  font-family: var(--font-playfair);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--sema-forest-green);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+/* --- Progress Indicator --- */
+.progressContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  /* Decreased gap */
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.4s forwards;
+  position: relative;
+  z-index: 10;
+  /* Ensure visibility */
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-manrope);
+  font-size: 0.9rem;
+  color: #ccc;
+  font-weight: 600;
+}
+
+.progressStep.active {
+  color: var(--sema-forest-green);
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.progressStep.active .stepNumber {
+  border-color: var(--sema-forest-green);
+  background-color: var(--sema-forest-green);
+  color: #fff;
+}
+
+/* --- Content Card --- */
+.cardContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.6s forwards;
+}
+
+.cardTitle {
+  font-family: var(--font-noto-serif);
+  font-size: 1.5rem;
+  color: var(--sema-forest-green);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* --- Step 1: Schedule (Calendar & Time) --- */
+.calendarWrapper {
+  margin-bottom: 32px;
+}
+
+.monthNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: var(--font-manrope);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.navBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--sema-forest-green);
+  padding: 5px 10px;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  font-family: var(--font-manrope);
+}
+
+.weekDay {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.dayBtn {
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.dayBtn:hover:not(:disabled) {
+  background-color: rgba(0, 56, 44, 0.05);
+}
+
+.dayBtn.selected {
+  background-color: var(--sema-forest-green);
+  color: white;
+}
+
+.dayBtn.today {
+  color: var(--sema-gold);
+  font-weight: 800;
+}
+
+.dayBtn:disabled {
+  color: #eee;
+  cursor: not-allowed;
+}
+
+.timeSection {
+  border-top: 1px solid #eee;
+  padding-top: 24px;
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-noto-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.timeChip {
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: white;
+  font-family: var(--font-manrope);
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeChip:hover {
+  border-color: var(--sema-forest-green);
+}
+
+.timeChip.selected {
+  background-color: var(--sema-forest-green);
+  color: white;
+}
+
+/* --- Step 2: Details (Guest & Form) --- */
+
+.timeInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeInput {
+  font-family: var(--font-noto-sans);
+  font-size: 1.2rem;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timeInput:focus {
+  border-color: var(--sema-forest-green);
+  background-color: #fff;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 12px 12px 48px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s;
+  font-family: var(--font-noto-sans);
+}
+
+.input:focus {
+  border-color: var(--sema-forest-green);
+  background-color: #fff;
+}
+
+.errorInput {
+  border-color: #e53e3e !important;
+  background-color: #fff5f5;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.helperText {
+  font-size: 0.85rem;
+  color: #888;
+  margin-left: 4px;
+}
+
+.guestControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.guestInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 2px solid #ddd;
+  padding: 0 8px;
+}
+
+.guestInputWrapper:focus-within {
+  border-color: var(--sema-forest-green);
+}
+
+.guestInput {
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 60px;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-family: var(--font-manrope);
+  color: var(--sema-forest-green);
+  background: transparent;
+}
+
+/* Hide spinner for number input */
+.guestInput::-webkit-inner-spin-button,
+.guestInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.guestUnit {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.guestCount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sema-forest-green);
+  min-width: 60px;
+  text-align: center;
+}
+
+.countBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 1.5rem;
+  color: var(--sema-forest-green);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.countBtn:hover {
+  border-color: var(--sema-forest-green);
+  background-color: rgba(0, 56, 44, 0.05);
+}
+
+.guestCount {
+  font-family: var(--font-playfair);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputLabel {
+  display: block;
+  font-family: var(--font-noto-sans);
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--font-noto-sans);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.inputField:focus {
+  border-color: var(--sema-gold);
+}
+
+/* --- Step 3: Confirmation --- */
+.confirmIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #2ecc71;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 24px;
+}
+
+.ticket {
+  background-color: #f9f9f9;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.ticketRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-family: var(--font-noto-sans);
+  font-size: 0.95rem;
+}
+
+.ticketLabel {
+  color: #888;
+}
+
+.ticketValue {
+  color: #333;
+  font-weight: 600;
+}
+
+.noticeBox {
+  background-color: rgba(197, 160, 57, 0.1);
+  /* Gold tint */
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-noto-sans);
+  font-size: 0.9rem;
+  color: #8a6d1c;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* --- Navigation Buttons --- */
+.navButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #888;
+  font-family: var(--font-noto-sans);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.nextBtn {
+  background-color: var(--sema-forest-green);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 40px;
+  font-family: var(--font-noto-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nextBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.nextBtn:hover:not(:disabled) {
+  background-color: #004d3d;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .cardContainer {
+    padding: 24px;
+  }
+
+  .timeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

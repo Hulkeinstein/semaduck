@@ -1,0 +1,122 @@
+.wheelContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  position: relative;
+  background: #fdfdfd;
+  border-radius: 12px;
+  overflow: hidden;
+  user-select: none;
+  border: 1px solid #eee;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03);
+}
+
+/* The horizontal bar indicating selection */
+.highlightBar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgba(0, 56, 44, 0.08);
+  /* Sema Forest Green Tint */
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.colon {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  z-index: 1;
+  margin: 0 10px;
+  padding-bottom: 4px;
+  /* Align visual center */
+}
+
+.column {
+  height: 100%;
+  width: 80px;
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+.column::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spacer {
+  height: 60px;
+  /* (Container Height 160 - Item Height 40) / 2 */
+  flex-shrink: 0;
+}
+
+.item {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+
+  font-family: var(--font-manrope);
+  font-size: 1.1rem;
+  color: #999;
+  font-weight: 500;
+  cursor: pointer;
+  scroll-snap-align: center;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.item.selected {
+  color: var(--sema-forest-green);
+  font-size: 1.4rem;
+  font-weight: 800;
+  transform: scale(1.1);
+}
+
+/* Add gradient overlays for 3D depth feel */
+.wheelContainer::before,
+.wheelContainer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.wheelContainer::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+.wheelContainer::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}

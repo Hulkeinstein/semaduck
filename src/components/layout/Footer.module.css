@@ -52,16 +52,32 @@
 .brandSection {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
+  /* Reduced gap to bring tagline closer */
+  align-items: center;
+  /* Center Items */
 }
 
 .logo {
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* Center internal content if needed */
   gap: 16px;
   color: var(--sema-paper-white, #f7f5f1);
   text-decoration: none;
   width: fit-content;
+}
+
+.logoImage {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.05);
 }
 
 .logoCircle {
@@ -87,18 +103,25 @@
 
 .brandName {
   font-family: var(--font-playfair);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.25em;
 }
 
 .tagline {
-  font-family: var(--font-dancing);
-  font-size: 20px;
-  line-height: 1.5;
-  opacity: 0.85;
-  max-width: 240px;
-  letter-spacing: 0.02em;
+  font-family: var(--font-noto-serif);
+  font-size: 18px;
+  /* Balanced size */
+  font-weight: 500;
+  color: var(--sema-paper-white, #f7f5f1);
+  opacity: 0.9;
+  max-width: 100%;
+  letter-spacing: 0.05em;
+  margin-top: -4px;
+  text-align: center;
+  /* Ensure text is centered */
+  margin-left: 0;
+  /* Remove left margin for perfect centering */
 }
 
 /* Navigation Section */
@@ -110,8 +133,8 @@
 
 .navTitle {
   font-family: var(--font-noto-serif);
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--sema-gold, #c5a039);
@@ -127,11 +150,11 @@
 .navLinks a {
   position: relative;
   font-family: var(--font-manrope);
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 19px;
+  font-weight: 500;
   color: var(--sema-paper-white, #f7f5f1);
   text-decoration: none;
-  opacity: 0.75;
+  opacity: 0.85;
   transition: opacity 0.4s ease;
   width: fit-content;
   padding-bottom: 2px;
@@ -175,10 +198,10 @@
 .contactList li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   font-family: var(--font-manrope);
-  font-size: 14px;
-  opacity: 0.75;
+  font-size: 19px;
+  opacity: 0.85;
   transition: opacity 0.3s ease;
 }
 
@@ -210,8 +233,8 @@
 }
 
 .socialLinks a {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border: 1px solid rgba(247, 245, 241, 0.25);
   border-radius: 50%;
   display: flex;
@@ -271,6 +294,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(200%);
   }
@@ -285,7 +309,7 @@
 
 .copyright {
   font-family: var(--font-manrope);
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.5;
   margin: 0;
   letter-spacing: 0.03em;
@@ -299,7 +323,7 @@
 .legalLinks a {
   position: relative;
   font-family: var(--font-manrope);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--sema-paper-white, #f7f5f1);
   text-decoration: none;
   opacity: 0.5;

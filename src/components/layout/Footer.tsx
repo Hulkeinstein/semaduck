@@ -67,10 +67,10 @@ export default function Footer() {
           <motion.div className={styles.brandSection} variants={itemVariants}>
             <Link href="/" className={styles.logo}>
               <Image
-                src="/logo-gold.png"
+                src="/logo-gold-up.png"
                 alt="Sema Duck Logo"
-                width={120}
-                height={40}
+                width={280}
+                height={80}
                 className={styles.logoImage}
               />
             </Link>

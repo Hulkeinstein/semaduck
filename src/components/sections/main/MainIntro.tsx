@@ -16,7 +16,11 @@ const MainIntro = () => {
   const yRight = useTransform(scrollYProgress, [0, 1], [150, -150]); // Asymmetric Parallax
 
   return (
-    <section ref={sectionRef} className={styles.section}>
+    <section
+      id="section-main-intro"
+      ref={sectionRef}
+      className={styles.section}
+    >
       <div className={styles.gridContainer}>
         {/* Left Guardian (Image) */}
         <motion.div
@@ -78,12 +82,12 @@ const MainIntro = () => {
           </motion.div>
 
           {/* Main Title - Mask Reveal (Cinematic) */}
-          <div style={{ overflow: 'hidden' }}>
+          <div className={styles.titleWrapper}>
             <motion.h1
               className={styles.title}
               initial={{ y: '100%' }}
               whileInView={{ y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{
                 duration: 1.2,
                 ease: [0.33, 1, 0.68, 1],
@@ -100,8 +104,8 @@ const MainIntro = () => {
               <Image
                 src="/assets/images/ceo-s.png"
                 alt="CEO Duck"
-                width={220}
-                height={300}
+                width={320}
+                height={440}
                 className={styles.duckImage}
                 priority
               />

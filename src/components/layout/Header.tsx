@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import {
   motion,
@@ -14,14 +15,17 @@ import { Menu, X } from 'lucide-react';
 import type { NavItem } from '@/types';
 
 const navItems: NavItem[] = [
+  { name: 'HOME', href: '/' },
   { name: '브랜드 스토리', href: '/story' },
   { name: '메뉴 소개', href: '/menu' },
   { name: '공간 안내', href: '/space' },
-  { name: '예약 안내', href: '/reservation' },
+  { name: '소식 & 후기', href: '/reviews' },
   { name: '오시는 길', href: '/location' },
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isMain = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showGreenLogo, setShowGreenLogo] = useState(false);
@@ -114,10 +118,18 @@ export default function Header() {
 
   // Helper to determine active logo
   const getLogoSrc = () => {
-    if (isMobileMenuOpen) return '/logo.png'; // Always colored on menu
-    if (showGreenLogo) return '/logo-green.png'; // Green from Taste of Nature onwards
-    if (isScrolled) return '/logo.png'; // Default colored when scrolled (before green section)
-    return '/logo-white.png'; // Transparent header
+    if (isMobileMenuOpen) return '/logo-up.png'; // Always colored on menu
+
+    // Subpages Logic
+    if (!isMain) {
+      if (isScrolled) return '/logo-up.png';
+      return '/logo-green-up.png';
+    }
+
+    // Home Page Logic
+    if (showGreenLogo) return '/logo-green-up.png'; // Green from Taste of Nature onwards
+    if (isScrolled) return '/logo-up.png'; // Default colored when scrolled (before green section)
+    return '/logo-white-up.png'; // Transparent header only on Main top
   };
 
   return (
@@ -129,9 +141,10 @@ export default function Header() {
             <Image
               src={getLogoSrc()}
               alt="Sema Duck Logo"
-              width={120}
-              height={40}
+              width={240}
+              height={80}
               className={styles.logoImage}
+              priority
             />
           </Link>
         </div>
