@@ -113,9 +113,9 @@ export const metadata: Metadata = {
     canonical: 'https://semaduck.com',
   },
   verification: {
-    // 추후 등록 시 추가
-    // google: 'google-site-verification-code',
-    // naver: 'naver-site-verification-code',
+    other: {
+      'naver-site-verification': 'ff4d3b9c428f2dc71d761ffd7fe5970956a1a6e6',
+    },
   },
 };
 
