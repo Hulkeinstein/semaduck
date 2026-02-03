@@ -112,9 +112,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://semaduck.com',
   },
-  other: {
-    'naver-site-verification': 'ff4d3b9c428f2dc71d761ffd7fe5970956a1a6e6',
-  },
 };
 
 export default function RootLayout({
@@ -124,6 +121,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <meta
+          name="naver-site-verification"
+          content="ff4d3b9c428f2dc71d761ffd7fe5970956a1a6e6"
+        />
+      </head>
       <body
         className={`${playfair.variable} ${manrope.variable} ${dancing.variable} ${oswald.variable} ${notoSansKr.variable} ${notoSerifKr.variable}`}
       >
