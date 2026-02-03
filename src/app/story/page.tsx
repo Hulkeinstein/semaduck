@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import styles from './StoryPage.module.css';
 
@@ -14,7 +14,7 @@ export default function StoryPage() {
   const yContent3 = useTransform(scrollYProgress, [0.6, 0.9], [50, -50]);
 
   // Kinetic Typography Variants
-  const fadeBlurIn = {
+  const fadeBlurIn: Variants = {
     hidden: { opacity: 0, filter: 'blur(10px)', y: 20 },
     visible: {
       opacity: 1,
@@ -24,7 +24,7 @@ export default function StoryPage() {
     },
   };
 
-  const containerStagger = {
+  const containerStagger: Variants = {
     visible: {
       transition: {
         staggerChildren: 0.3,
@@ -33,7 +33,7 @@ export default function StoryPage() {
   };
 
   // Animated Line Variant
-  const lineDraw = {
+  const lineDraw: Variants = {
     hidden: { scaleY: 0, originY: 0 },
     visible: {
       scaleY: 1,
