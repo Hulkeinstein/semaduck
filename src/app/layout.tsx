@@ -112,10 +112,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://semaduck.com',
   },
-  verification: {
-    other: {
-      'naver-site-verification': 'ff4d3b9c428f2dc71d761ffd7fe5970956a1a6e6',
-    },
+  other: {
+    'naver-site-verification': 'ff4d3b9c428f2dc71d761ffd7fe5970956a1a6e6',
   },
 };
 
