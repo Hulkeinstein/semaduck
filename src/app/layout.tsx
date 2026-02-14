@@ -80,6 +80,8 @@ export const metadata: Metadata = {
     },
   },
 
+  metadataBase: new URL('https://semaduck.com'),
+
   // Open Graph (카카오톡, 페이스북 공유 시)
   openGraph: {
     type: 'website',
