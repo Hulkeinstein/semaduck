@@ -14,13 +14,13 @@ const menuItems: MenuItem[] = [
     details: [
       { label: '추가 메뉴', text: '1인분 추가 27,000' },
       {
-        label: '코스 포함',
-        text: '오리 숯불구이, 도토리묵, 계절 식사(깨죽, 냉면 또는 밥, 오리탕)',
+        label: '계절 후식',
+        text: '깨죽·냉면(하절기) / 오리뼈탕·가마솥밥(동절기)',
         highlight: true,
       },
       {
         label: '원산지',
-        text: '오리고기, 쌀, 김치(배추, 고추가루) 국내산',
+        text: '오리고기, 쌀, 김치(배추/고춧가루), 콩 — 국내산',
         isOrigin: true,
       },
     ],
@@ -81,7 +81,14 @@ export default function MenuSection() {
                           className={`${styles.detailItem} ${detail.isOrigin ? styles.origin : ''} ${detail.highlight ? styles.highlight : ''}`}
                         >
                           {detail.label && (
-                            <span className={styles.detailLabel}>
+                            <span
+                              className={styles.detailLabel}
+                              style={
+                                detail.highlight
+                                  ? { display: 'block' }
+                                  : undefined
+                              }
+                            >
                               {detail.label}:
                             </span>
                           )}
@@ -104,7 +111,7 @@ export default function MenuSection() {
           >
             <div className={styles.menuImageWrapper}>
               <Image
-                src="/images/menu/menu-poster.png"
+                src="/images/menu/new-original.png"
                 alt="Sema Duck Farm Signature Menu"
                 fill
                 className={`${styles.menuImage} ${styles.menuImageContain}`}

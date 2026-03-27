@@ -16,7 +16,7 @@ import styles from './LocationPage.module.css';
 
 export default function LocationPage() {
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText('경기도 화성시 세마로 123');
+    navigator.clipboard.writeText('경기도 오산시 양산로 186(양산동)');
     alert('주소가 복사되었습니다.');
   };
 
@@ -47,7 +47,7 @@ export default function LocationPage() {
       {/* Action Buttons (Mobile First) */}
       <section className={styles.actionSection}>
         <a
-          href="tel:031-123-4567"
+          href="tel:031-375-5299"
           className={`${styles.actionButton} ${styles.primaryAction}`}
         >
           <Phone size={20} />
@@ -96,7 +96,7 @@ export default function LocationPage() {
               navigator
                 .share({
                   title: '세마오리농원 오시는 길',
-                  text: '경기 화성시 세마로 123 (세마역 1번 출구)',
+                  text: '경기도 오산시 양산로 186(양산동)',
                   url: shareUrl,
                 })
                 .catch(console.error);
@@ -143,11 +143,7 @@ export default function LocationPage() {
             <h3>
               <MapPin size={24} color="var(--sema-gold)" /> 주소
             </h3>
-            <p>
-              경기도 화성시 세마로 123
-              <br />
-              (세마역 1번 출구에서 800m)
-            </p>
+            <p>경기도 오산시 양산로 186(양산동)</p>
           </div>
 
           <div className={styles.infoGroup}>
@@ -155,7 +151,7 @@ export default function LocationPage() {
               <Phone size={24} color="var(--sema-gold)" /> 연락처
             </h3>
             <p>
-              031-123-4567
+              031-375-5299
               <br />
               <span style={{ fontSize: '0.9rem', color: '#666' }}>
                 (단체 예약 환영 / 주차 완비)
@@ -168,9 +164,11 @@ export default function LocationPage() {
               <Clock size={24} color="var(--sema-gold)" /> 운영 시간
             </h3>
             <p>
-              매일 11:00 - 22:00
+              매일 11:00 - 21:30
               <br />
-              (라스트 오더 20:30)
+              (라스트 오더 20:00)
+              <br />
+              브레이크타임: 15:00 - 16:00
             </p>
           </div>
 

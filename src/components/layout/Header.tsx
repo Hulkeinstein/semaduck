@@ -160,9 +160,6 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <Link href="/reservation" className={styles.ctaButton}>
-            예약하기
-          </Link>
         </nav>
 
         {/* Mobile Toggle Button */}
@@ -213,15 +210,6 @@ export default function Header() {
                 ))}
               </ul>
             </nav>
-            <motion.div variants={itemVariants}>
-              <Link
-                href="/reservation"
-                className={`${styles.ctaButton} ${styles.mobileCta}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                지금 예약하기
-              </Link>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

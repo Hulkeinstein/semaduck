@@ -50,17 +50,17 @@ const notoSerifKr = Noto_Serif_KR({
 export const metadata: Metadata = {
   // 기본 정보
   title: {
-    default: '세마오리농원 | 26년 전통 참숯불 오리구이',
+    default: '세마오리농원 | 20년 전통 참숯불 오리구이',
     template: '%s | 세마오리농원',
   },
   description:
-    '26년의 고집, 변치 않는 맛. 경기도 화성에서 최고급 참숯불 오리구이를 경험하세요. 신선한 국내산 오리고기와 전통 조리법으로 정성을 담았습니다.',
+    '20년의 고집, 변치 않는 맛. 경기도 오산시에서 최고급 참숯불 오리구이를 경험하세요. 신선한 국내산 오리고기와 전통 조리법으로 정성을 담았습니다.',
   keywords: [
     '세마오리농원',
     '오리고기',
     '오리구이',
     '참숯불구이',
-    '화성맛집',
+    '오산맛집',
     '경기도맛집',
     '오리전문점',
     '숯불오리',
@@ -88,9 +88,9 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     url: 'https://semaduck.com',
     siteName: '세마오리농원',
-    title: '세마오리농원 | 26년 전통 참숯불 오리구이',
+    title: '세마오리농원 | 20년 전통 참숯불 오리구이',
     description:
-      '26년의 고집, 변치 않는 맛. 경기도 화성에서 최고급 참숯불 오리구이를 경험하세요.',
+      '20년의 고집, 변치 않는 맛. 경기도 오산시에서 최고급 참숯불 오리구이를 경험하세요.',
     images: [
       {
         url: '/og-image.jpg',
@@ -104,9 +104,9 @@ export const metadata: Metadata = {
   // Twitter 카드
   twitter: {
     card: 'summary_large_image',
-    title: '세마오리농원 | 26년 전통 참숯불 오리구이',
+    title: '세마오리농원 | 20년 전통 참숯불 오리구이',
     description:
-      '26년의 고집, 변치 않는 맛. 경기도 화성에서 최고급 참숯불 오리구이를 경험하세요.',
+      '20년의 고집, 변치 않는 맛. 경기도 오산시에서 최고급 참숯불 오리구이를 경험하세요.',
     images: ['/og-image.jpg'],
   },
 

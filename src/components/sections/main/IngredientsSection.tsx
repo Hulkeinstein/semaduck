@@ -34,7 +34,7 @@ export default function IngredientsSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            세마오리농원의 모든 오리는 매일 아침 농장에서 직송된
+            세마오리농원의 모든 오리는
             <br />
             가장 신선한 &apos;유황생오리&apos;만을 고집합니다.
           </motion.p>
@@ -59,11 +59,9 @@ export default function IngredientsSection() {
               />
             </div>
             <div className={styles.overlay}>
-              <h3 className={styles.cardTitle}>매일 아침, 자연의 시간</h3>
+              <h3 className={styles.cardTitle}>자연의 시간</h3>
               <p className={styles.cardDesc}>
-                당일 도축된 신선함 그대로.
-                <br />
-                얼리지 않은 생오리만이 가진
+                얼리지 않은 신선한 생오리만이 가진
                 <br />
                 쫄깃한 육질과 고소함을 약속합니다.
               </p>
@@ -91,7 +89,7 @@ export default function IngredientsSection() {
               <p className={styles.cardDesc}>
                 직접 재배한 로컬 채소와
                 <br />
-                26년의 노하우가 담긴 손질로
+                20년의 노하우가 담긴 손질로
                 <br />
                 가장 완벽한 한 상을 준비합니다.
               </p>
