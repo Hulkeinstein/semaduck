@@ -60,7 +60,7 @@ export default function MenuPage() {
           viewport={{ once: true }}
         >
           <Image
-            src="/images/menu/menu-poster.png"
+            src="/images/menu/new-original.png"
             alt="Sema Duck Signature Roast"
             className={styles.signatureImage}
             width={600}
@@ -80,22 +80,22 @@ export default function MenuPage() {
           <span className={styles.signaturePrice}>₩ 89,000 / 한마리</span>
 
           <p className={styles.signatureDesc}>
-            당일 도축된 신선한 유황생오리를 최고급 참숯에 구워냅니다. 쫄깃한
-            육질과 고소한 풍미, 그리고 숯향의 조화를 경험하세요.
+            신선한 유황생오리를 최고급 참숯에 구워냅니다. 쫄깃한 육질과 고소한
+            풍미, 그리고 숯향의 조화를 경험하세요.
           </p>
 
           <ul className={styles.signatureDetails}>
             <li className={styles.detailItem}>
               <span className={styles.detailIcon}>✦</span>
-              포함: 도토리묵, 계절 겉절이, 깨죽, 오리탕
+              포함: 도토리묵, 계절 겉절이, 오리탕
             </li>
             <li className={styles.detailItem}>
               <span className={styles.detailIcon}>✦</span>
-              식사: 냉면 또는 공기밥 선택 가능
+              계절 식사 — 하절기: 깨죽·냉면 / 동절기: 오리뼈탕·가마솥밥
             </li>
             <li className={styles.detailItem}>
               <span className={styles.detailIcon}>✦</span>
-              반마리 추가 가능 (54,000원)
+              반마리 주문 가능 (54,000원)
             </li>
           </ul>
         </motion.div>
@@ -121,15 +121,6 @@ export default function MenuPage() {
             </div>
             <div className={styles.menuItem}>
               <div className={styles.itemText}>
-                <h3 className={styles.itemName}>영양죽 (Porridge)</h3>
-                <p className={styles.itemDesc}>
-                  오리 육수로 끓여낸 고소하고 부드러운 마무리 식사
-                </p>
-              </div>
-              <span className={styles.itemPrice}>포함</span>
-            </div>
-            <div className={styles.menuItem}>
-              <div className={styles.itemText}>
                 <h3 className={styles.itemName}>도토리묵 (Acorn Jelly)</h3>
                 <p className={styles.itemDesc}>
                   직접 쑨 도토리묵과 텃밭 채소 겉절이
@@ -149,22 +140,6 @@ export default function MenuPage() {
           <div className={styles.itemList}>
             <div className={styles.menuItem}>
               <div className={styles.itemText}>
-                <h3 className={styles.itemName}>냉면 (Cold Noodles)</h3>
-                <p className={styles.itemDesc}>
-                  입가심으로 좋은 시원한 물냉면 / 비빔냉면
-                </p>
-              </div>
-              <span className={styles.itemPrice}>6,000</span>
-            </div>
-            <div className={styles.menuItem}>
-              <div className={styles.itemText}>
-                <h3 className={styles.itemName}>공기밥</h3>
-                <p className={styles.itemDesc}>된장찌개 포함</p>
-              </div>
-              <span className={styles.itemPrice}>2,000</span>
-            </div>
-            <div className={styles.menuItem}>
-              <div className={styles.itemText}>
                 <h3 className={styles.itemName}>주류 / 음료</h3>
                 <p className={styles.itemDesc}>
                   소주, 맥주 (5,000) / 음료 (2,000)
@@ -180,8 +155,7 @@ export default function MenuPage() {
       <footer className={styles.originSection}>
         <h4 className={styles.originTitle}>원산지 안내</h4>
         <p className={styles.originText}>
-          오리고기(국내산), 쌀(국내산), 김치(배추/고춧가루: 국내산), 두부(콩:
-          외국산)
+          오리고기(국내산), 쌀(국내산), 김치(배추/고춧가루: 국내산), 콩(국내산)
         </p>
       </footer>
     </div>

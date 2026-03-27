@@ -82,7 +82,6 @@ export default function Footer() {
             <h4 className={styles.navTitle}>메뉴</h4>
             <nav className={styles.navLinks}>
               <Link href="/menu">메뉴 보기</Link>
-              <Link href="/reservation">예약하기</Link>
               <Link href="/location">오시는 길</Link>
               <Link href="/contact">문의하기</Link>
             </nav>
@@ -94,15 +93,15 @@ export default function Footer() {
             <ul className={styles.contactList}>
               <li>
                 <MapPin size={16} />
-                <span>경기도 화성시 세마로 123</span>
+                <span>경기도 오산시 양산로 186(양산동)</span>
               </li>
               <li>
                 <Phone size={16} />
-                <span>031-123-4567</span>
+                <span>031-375-5299</span>
               </li>
               <li>
                 <Clock size={16} />
-                <span>매일 11:00 - 22:00</span>
+                <span>11:00 - 21:30 (라스트 오더 20:00)</span>
               </li>
             </ul>
           </motion.div>
