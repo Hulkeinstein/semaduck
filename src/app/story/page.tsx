@@ -134,7 +134,7 @@ export default function StoryPage() {
           <motion.p variants={fadeBlurIn} className={styles.description}>
             세마오리농원은 화려한 도심이 아닌, 조용한 숲속에서 시작되었습니다.
             유행을 쫓기보다 변하지 않는 맛의 본질을 지키겠다는 고집. 그 고집
-            하나로 26년의 시간을 쌓아왔습니다.
+            하나로 20년의 시간을 쌓아왔습니다.
           </motion.p>
         </motion.div>
       </section>
@@ -196,9 +196,9 @@ export default function StoryPage() {
             자연이 준 선물
           </motion.h2>
           <motion.p variants={fadeBlurIn} className={styles.description}>
-            매일 아침 농장에서 직송되는 신선한 생오리, 직접 기른 채소, 그리고
-            강원도 산지에서 공수한 참숯. 가장 좋은 재료가 가장 훌륭한 요리사가
-            된다는 믿음으로 타협하지 않는 식탁을 준비합니다.
+            신선한 생오리, 직접 기른 채소, 그리고 강원도 산지에서 공수한 참숯.
+            가장 좋은 재료가 가장 훌륭한 요리사가 된다는 믿음으로 타협하지 않는
+            식탁을 준비합니다.
           </motion.p>
         </motion.div>
       </section>

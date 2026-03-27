@@ -117,7 +117,7 @@ const MainIntro = () => {
             <p className={styles.paragraph}>
               자연이 내어준 가장 정직한 맛을 담았습니다.
               <br />
-              세마오리농원은 26년의 시간 동안 변함없는 마음으로
+              세마오리농원은 20년의 시간 동안 변함없는 마음으로
               <br />
               불과 고기, 그리고 사람을 잇습니다.
             </p>
@@ -149,7 +149,7 @@ const MainIntro = () => {
             className={styles.rightImageInner}
           >
             <Image
-              src="/images/hero/main-right.webp"
+              src="/images/hero/main-right.jpg"
               alt="Heritage Right - Fresh Duck"
               fill
               className={styles.sideImage}
