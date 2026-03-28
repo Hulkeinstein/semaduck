@@ -3,10 +3,10 @@
 ## 배포 흐름
 
 ```
-코드 수정 → git push origin main → GitHub Actions → Docker Hub → Watchtower → 자동 배포
+코드 수정 → git push origin main → GitHub Actions → Docker Hub → Claude Code SSH 수동 배포
 ```
 
-## 일반 배포 (자동)
+## 일반 배포
 
 ```bash
 # 1. feature 브랜치에서 작업
@@ -16,15 +16,15 @@ git checkout -b feature/새기능
 git add .
 git commit -m "feat: 새 기능"
 
-# 3. main에 merge
+# 3. main에 merge & push
 git checkout main
 git merge feature/새기능
 git push origin main
 
-# 4. 5분 후 자동 배포 (Watchtower)
+# 4. GitHub Actions 빌드 완료 확인 후 → Claude Code에게 배포 요청
 ```
 
-**main 브랜치에 push하면 5분 내 자동 배포됩니다.**
+**main push 후 GitHub Actions 빌드가 완료되면 Claude Code가 SSH로 서버에 접속해 자동 배포합니다.**
 
 ---
 
@@ -35,25 +35,42 @@ git push origin main
 | GitHub Actions | CI/CD         | main push 시 Docker 이미지 빌드    |
 | Docker Hub     | 이미지 저장소 | `masterkein/semaduck:latest`       |
 | Plesk Docker   | 컨테이너 실행 | 포트 `32778:3001`                  |
-| Watchtower     | 자동 업데이트 | 5분마다 새 이미지 감지 → 재시작    |
+| Claude Code    | 수동 배포     | SSH(plink)로 서버 접속 후 재배포   |
 | Apache Proxy   | 리버스 프록시 | `127.0.0.1:32778` → `semaduck.com` |
 
 ---
 
-## 긴급 수동 배포
+## Claude Code 배포 방법
 
-Plesk SSH 접속 후:
+`.env.local`에 서버 접속 정보를 저장해두면 Claude Code가 plink(PuTTY)로 SSH 접속 후 자동 배포합니다.
+
+**`.env.local` 설정:**
+
+```env
+DEPLOY_HOST=64.176.162.29
+DEPLOY_USER=root
+DEPLOY_PORT=22
+DEPLOY_PASSWORD=<비밀번호>
+```
+
+**Claude Code가 실행하는 명령어:**
 
 ```bash
-# 최신 이미지 pull
-docker pull masterkein/semaduck:latest
+plink -ssh -pw <PASSWORD> root@<HOST> \
+  "docker pull masterkein/semaduck:latest && \
+   docker stop semaduck && \
+   docker rm semaduck && \
+   docker run -d --name semaduck -p 32778:3001 --restart unless-stopped masterkein/semaduck:latest"
+```
 
-# 기존 컨테이너 중지 및 삭제
-docker stop semaduck
-docker rm semaduck
+> `.env.local`은 gitignore되어 있어 git에 올라가지 않습니다.
 
-# 새 컨테이너 실행
-docker run -d --name semaduck -p 32778:3001 --restart unless-stopped masterkein/semaduck:latest
+## 긴급 수동 배포
+
+직접 터미널에서 실행 시:
+
+```bash
+docker pull masterkein/semaduck:latest && docker stop semaduck && docker rm semaduck && docker run -d --name semaduck -p 32778:3001 --restart unless-stopped masterkein/semaduck:latest
 ```
 
 ---
@@ -99,17 +116,13 @@ curl -s "https://semaduck.com" | head -20
    docker logs semaduck
    ```
 
-### Watchtower가 업데이트 안 할 때
+### 배포 후 반영 안 될 때
 
 ```bash
-# Watchtower 상태 확인
-docker ps | grep watchtower
+# 컨테이너 재시작
+docker restart semaduck
 
-# Watchtower 로그 확인
-docker logs watchtower --tail 50
-
-# Watchtower 재시작
-docker restart watchtower
+# 또는 Claude Code에게 재배포 요청
 ```
 
 ---
